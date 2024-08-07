@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #2C3E50; */
+    color: #ECF0F1;
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+:root {
+    --bg-color: #D9DBF1;
+    --sec-color: #416165;
+    --font-color: #0B3948;
+    --secfont-color: #D0CDD7;
+}
+
+/* Header Styles */
+header {
+
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+
+    font-size: 2em;
+    font-family: 'margarine';
+    color: var(--sec-color);
+    margin: 40px 20px;
+}
+header img {
+    height: 50px;
+}
+
+.navbar {
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.nav-link {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #031D44;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+.nav-link::before {
+    transition: 300ms;
+    height: 5px;
+    content: "";
+    position: absolute;
+    background-color: #031D44;
+}
+
+.nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+}
+
+.nav-link-ltr:hover::before {
+    width: 100%;
+}
+
+.nav-link-fade-up::before {
+    width: 100%;
+    bottom: 5px;
+    opacity: 0;
+}
+
+.nav-link-fade-up:hover::before {
+    bottom: 10px;
+    opacity: 1;
+}
+
+.nav-link-grow-up::before {
+    height: 0%;
+    width: 100%;
+    bottom: 0px;
+}
+
+.nav-link-grow-up:hover::before {
+    height: 5px;
+}
+
+.chatbot, .parent-info {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#chat-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Test</title>
+    <link rel="stylesheet" href="testStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="title">Behavioral Test</h1>
+        <form id="test-form">
+            <div class="question">
+                <label for="q1" id="q1-label">Continuous Overpowered Motion, Running, and Jumping:</label>
+                <input type="range" id="q1" name="q1" min="0" max="100">
+                <span id="q1-value">50%</span>
+            </div>
+            <div class="question">
+                <label for="q2" id="q2-label">Your focus range while studying or listening to your family and
+                    friends:</label>
+                <input type="range" id="q2" name="q2" min="0" max="100">
+                <span id="q2-value">50%</span>
+            </div>
+            <div class="question">
+                <label for="q3" id="q3-label">Speed of getting bored of something:</label>
+                <input type="range" id="q3" name="q3" min="0" max="100">
+                <span id="q3-value">50%</span>
+            </div>
+            <div class="question">
+                <label for="q4" id="q4-label">Remembering random things at random times so often:</label>
+                <input type="range" id="q4" name="q4" min="0" max="100">
+                <span id="q4-value">50%</span>
+            </div>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <button id="toggle-language">Switch to Arabic</button>
+    </div>
+    <script>
+        document.getElementById('q1').addEventListener('input', function () {
+            document.getElementById('q1-value').textContent = this.value + '%';
+        });
+        document.getElementById('q2').addEventListener('input', function () {
+            document.getElementById('q2-value').textContent = this.value + '%';
+        });
+        document.getElementById('q3').addEventListener('input', function () {
+            document.getElementById('q3-value').textContent = this.value + '%';
+        });
+        document.getElementById('q4').addEventListener('input', function () {
+            document.getElementById('q4-value').textContent = this.value + '%';
+        });
+
+        function submitForm() {
+            const data = {
+                q1: document.getElementById('q1').value,
+                q2: document.getElementById('q2').value,
+                q3: document.getElementById('q3').value,
+                q4: document.getElementById('q4').value
+            };
+
+            localStorage.setItem('testData', JSON.stringify(data));
+            window.location.href = 'parent.html';
+        }
+
+        document.getElementById('toggle-language').addEventListener('click', function () {
+            const isEnglish = document.documentElement.lang === 'en';
+            document.documentElement.lang = isEnglish ? 'ar' : 'en';
+            document.getElementById('title').textContent = isEnglish ? 'اختبار السلوك' : 'Behavioral Test';
+            document.getElementById('q1-label').textContent = isEnglish ? 'الحركة الزائدة و الجري و الطنتيط المستمر:' : 'Continuous Overpowered Motion, Running, and Jumping:';
+            document.getElementById('q2-label').textContent = isEnglish ? 'تركيزك في المذاكرة او في كلام اصحابك و اهلك:' : 'Your focus range while studying or listening to your family and friends:';
+            document.getElementById('q3-label').textContent = isEnglish ? 'سرعة الملل:' : 'Speed of getting bored of something:';
+            document.getElementById('q4-label').textContent = isEnglish ? 'تذكر اشياء عشوائية في عقلك في اوقات عشوائية بشكل كبير:' : 'Remembering random things at random times so often:';
+            this.textContent = isEnglish ? 'التبديل إلى الإنجليزية' : 'Switch to Arabic';
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
